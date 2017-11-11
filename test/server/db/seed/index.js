@@ -1,13 +1,13 @@
 //load db and all tables
-const db = require('./models');
+const db = require('../../../../server/models');
 
 //load seed data
-const UserSeed = require('../../test/server/db/seed/user.js');
-const CrewSeed = require('../../test/server/db/seed/crew.js');
-const TaskSeed = require('../../test/server/db/seed/task.js');
-const RewardSeed = require('../../test/server/db/seed/reward.js');
-const UserCrewSeed = require('../../test/server/db/seed/user_crew.js');
-const UserTaskSeed = require('../../test/server/db/seed/user_task.js');
+const UserSeed = require('./user.js');
+const CrewSeed = require('./crew.js');
+const TaskSeed = require('./task.js');
+const RewardSeed = require('./reward.js');
+const UserCrewSeed = require('./user_crew.js');
+const UserTaskSeed = require('./user_task.js');
 
 module.exports = function() {
   return db.sequelize.drop()

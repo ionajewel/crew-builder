@@ -1,6 +1,6 @@
 const FacebookTokenStrategy = require('passport-facebook-token');
 const passport = require('passport');
-const upsertFbUser = require('./../db/controllers/userHelpers.js').upsertFbUser;
+const upsertFbUser = require('../controllers/userHelpers.js').upsertFbUser;
 
 
 // Define strategy

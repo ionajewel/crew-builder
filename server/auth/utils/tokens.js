@@ -3,7 +3,7 @@ let expressJwt = require('express-jwt');
 let express = require('express');
 let router = express.Router();
 let passport = require('passport');
-let findUserById = require('./../../db/controllers/userHelpers.js').findUserById;
+let findUserById = require('../../controllers/userHelpers.js').findUserById;
 
 // Hashes a unique JWT for our user
 let createToken = (auth) => {
