@@ -1,4 +1,4 @@
-const db = require('../index.js');
+const db = require('../models');
 
 exports.getCrewsByUser = (req, res) => {
   let id = req.query.id;

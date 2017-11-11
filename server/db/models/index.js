@@ -1,12 +1,15 @@
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
+const basename = path.basename(module.filename);
 const Sequelize = require('sequelize');
+const db = {};
 
+let sequelize;
 if (process.env.DATABASE_URL) {
-  var sequelize = new Sequelize(process.env.DATABASE_URL);
+  sequelize = new Sequelize(process.env.DATABASE_URL);
 } else {
-  var sequelize = new Sequelize('crewbuilder', process.env.DB_USER, process.env.DB_PASSWORD, {
+  sequelize = new Sequelize('crewbuilder', process.env.DB_USER, process.env.DB_PASSWORD, {
     host: 'localhost',
     dialect: 'postgres',
     port: process.env.DB_PORT,
@@ -20,12 +23,15 @@ if (process.env.DATABASE_URL) {
   });
 }
 
-var db = {};
 
 fs
-  .readdirSync(path.join(__dirname, '/models'))
+  .readdirSync(path.join(__dirname))
+  .filter(file =>
+    (file.indexOf('.') !== 0) &&
+    (file !== basename) &&
+    (file.slice(-3) === '.js'))
   .forEach(function(file) {
-    var model = sequelize.import(path.join(__dirname, '/models/', file));
+    var model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
   });
 

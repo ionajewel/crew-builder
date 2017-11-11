@@ -1,4 +1,4 @@
-let db = require('../index.js');
+let db = require('../models');
 
 module.exports = {
 

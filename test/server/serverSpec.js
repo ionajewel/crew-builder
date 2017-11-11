@@ -3,7 +3,7 @@ const expect = chai.expect;
 const request = require('supertest');
 const path = require('path');
 const server = require('../../index.js');
-const db = require('../../server/db/index.js');
+const db = require('../../server/db/models');
 const seed = require('../../server/db/seed.js');
 
 // ##################################

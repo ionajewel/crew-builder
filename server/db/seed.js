@@ -1,5 +1,5 @@
 //load db and all tables
-const db = require('./index.js');
+const db = require('./models');
 
 //load seed data
 const UserSeed = require('../../test/server/db/seed/user.js');

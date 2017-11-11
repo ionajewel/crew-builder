@@ -1,4 +1,4 @@
-let db = require('../index.js');
+const db = require('../models');
 
 //Find or create user
 exports.upsertFbUser = (profile, cb) => {
